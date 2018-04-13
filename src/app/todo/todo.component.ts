@@ -27,6 +27,10 @@ export class TodoComponent implements OnInit {
       });
   }
 
+  onTextChanges(value) {
+    this.desc = value;
+  }
+
   toggleTodo(todo: Todo) {
     const i = this.todos.indexOf(todo);
     this.service

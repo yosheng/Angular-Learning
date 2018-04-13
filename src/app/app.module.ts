@@ -13,12 +13,16 @@ import { TodoComponent } from './todo/todo.component';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryTodoDbService } from './todo/todo-data';
+import { TodoFooterComponent } from './todo/todo-footer/todo-footer.component';
+import { TodoHeaderComponent } from './todo/todo-header/todo-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TodoComponent
+    TodoComponent,
+    TodoFooterComponent,
+    TodoHeaderComponent
   ],
   imports: [
     BrowserModule,
