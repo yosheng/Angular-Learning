@@ -9,12 +9,12 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'todo',
-    component: TodoComponent
-  },
-  {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'todo',
+    redirectTo: 'todo'
   }
 ];
 

@@ -3,31 +3,28 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-
-import { AppComponent } from './app.component';
-import { AuthService } from './core/auth.service';
-import { LoginComponent } from './login/login.component';
-
-import { routing } from './app.routes';
-import { TodoComponent } from './todo/todo.component';
+import { TodoModule } from './todo/todo.module';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryTodoDbService } from './todo/todo-data';
-import { TodoFooterComponent } from './todo/todo-footer/todo-footer.component';
-import { TodoHeaderComponent } from './todo/todo-header/todo-header.component';
+
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './core/auth.service';
+
+import { routing } from './app.routes';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TodoComponent,
-    TodoFooterComponent,
-    TodoHeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    TodoModule,
     routing,
     InMemoryWebApiModule.forRoot(InMemoryTodoDbService)
   ],
