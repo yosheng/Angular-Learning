@@ -14,7 +14,7 @@ export const routes: Routes = [
   },
   {
     path: 'todo',
-    redirectTo: 'todo'
+    redirectTo: 'todo/ALL'
   }
 ];
 
