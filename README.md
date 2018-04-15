@@ -1,5 +1,7 @@
 # Angular从零到一
 
+![Angular从零到一](https://m.360buyimg.com/n12/jfs/t4189/113/3010039843/174960/9aa3cc44/58d8d48bNd0392b98.jpg!q70.jpg) 
+
 本專案根據書本章節進行撰寫 書本範例以 Angular2 為主
 當前穩定版本為 Angular5 一方面調整寫法 一方面給自己做學習紀錄
 
@@ -34,5 +36,3 @@ statusText:"Unprocessable Entity"
 * [Using only @angular/common/http but @angular/http still required](https://github.com/angular/in-memory-web-api/issues/140)
 
 最後附上 Angular in-memory-web-api [版本變更紀錄](https://changelogs.md/github/angular/in-memory-web-api/)
-
-![Angular从零到一](https://m.360buyimg.com/n12/jfs/t4189/113/3010039843/174960/9aa3cc44/58d8d48bNd0392b98.jpg!q70.jpg) 
