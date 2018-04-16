@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Todo } from './todo.model';
+import { Todo } from '../domain/entities';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({

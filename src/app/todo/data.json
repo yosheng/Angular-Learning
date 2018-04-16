@@ -1,0 +1,46 @@
+{
+  "todos": [
+    {
+      "id": "45a2d443-4609-0f76-c87a-b935c8207710",
+      "desc": "getting up",
+      "completed": false,
+      "userId": 1
+    },
+    {
+      "id": "d5bf40f7-b27e-c7dd-62e3-8a20171f608f",
+      "desc": "have breakfast",
+      "completed": false,
+      "userId": 2
+    },
+    {
+      "id": "7857b006-9abd-0262-ff62-81aca959d39f",
+      "desc": "go to school",
+      "completed": false,
+      "userId": 1
+    },
+    {
+      "id": "43f3395c-919a-b08f-be3f-5c78a5f6619b",
+      "desc": "test",
+      "completed": false,
+      "userId": 2
+    },
+    {
+      "id": "1796bd1a-558c-8b35-104b-799ae848caeb",
+      "desc": "this is a test",
+      "completed": false,
+      "userId": 1
+    }
+  ],
+  "users":[
+    {
+      "id": 1,
+      "username": "zhang",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "username": "wang",
+      "password": "5678"
+    }
+  ]
+}
