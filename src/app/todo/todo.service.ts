@@ -12,17 +12,18 @@ export class TodoService {
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   todos: Todo[] = [];
-  userId = 1;
 
   constructor(private client: HttpClient) {}
 
   // POST /todos
   addTodo(desc: string): Promise<Todo> {
+    // "+" Convert string to number
+    const userId: number = +localStorage.getItem('userId');
     let todo = {
       id: UUID.UUID(),
       desc: desc,
       completed: false,
-      userId: this.userId
+      userId: userId
     };
     return this.client
       .post(this.api_url, JSON.stringify(todo), { headers: this.headers })
@@ -52,8 +53,9 @@ export class TodoService {
   }
   // GET /todos
   getTodos(): Promise<Todo[]> {
+    const userId: number = +localStorage.getItem('userId');
     return this.client
-      .get(`${this.api_url}?userId=${this.userId}`)
+      .get(`${this.api_url}?userId=${userId}`)
       .toPromise()
       .then(res => res as Todo[])
       .catch(this.handleError);
@@ -61,16 +63,17 @@ export class TodoService {
 
   // GET /todos?completed=true/false
   filterTodos(filter: string): Promise<Todo[]> {
+    const userId: number = +localStorage.getItem('userId');
     switch (filter) {
       case 'ACTIVE':
         return this.client
-          .get(`${this.api_url}?completed=false&userId=${this.userId}`)
+          .get(`${this.api_url}?completed=false&userId=${userId}`)
           .toPromise()
           .then(res => res as Todo[])
           .catch(this.handleError);
       case 'COMPLETED':
         return this.client
-          .get(`${this.api_url}?completed=true&userId=${this.userId}`)
+          .get(`${this.api_url}?completed=true&userId=${userId}`)
           .toPromise()
           .then(res => res as Todo[])
           .catch(this.handleError);

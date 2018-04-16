@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { CoreModule } from './core/core.module';
 import { TodoModule } from './todo/todo.module';
 
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { routing } from './app.routes';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    CoreModule,
     TodoModule,
     routing,
   ],
