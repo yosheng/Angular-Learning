@@ -34,7 +34,7 @@ export class TodoService {
     console.log(url);
     let updatedTodo = Object.assign({}, todo, { completed: !todo.completed });
     return this.client
-      .put(url, JSON.stringify(updatedTodo), { headers: this.headers })
+      .patch(url, JSON.stringify({completed: !todo.completed}), { headers: this.headers })
       .toPromise()
       .then(() => updatedTodo)
       .catch(this.handleError);
