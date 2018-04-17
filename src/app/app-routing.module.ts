@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'todo',
     redirectTo: 'todo/ALL'
+  },
+  {
+    path: 'playground',
+    loadChildren: './playground/playground.module#PlaygroundModule'
   }
 ];
 
