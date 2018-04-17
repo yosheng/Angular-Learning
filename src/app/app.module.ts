@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './core/auth.service';
 
-import { routing } from './app.routes';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { routing } from './app.routes';
     HttpClientModule,
     CoreModule,
     TodoModule,
-    routing,
+    AppRoutingModule,
   ],
   providers: [
     {provide: 'auth',  useClass: AuthService}
