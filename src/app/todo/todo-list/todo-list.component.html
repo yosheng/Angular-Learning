@@ -1,5 +1,5 @@
 <section class="main" *ngIf="todos?.length > 0">
-  <input class="toggle-all" type="checkbox" (click)="onToggleAllTriggered()">
+  <mdl-icon-toggle class="toggle-all" [mdl-ripple]="true" (click)="onToggleAllTriggered()">expand_more</mdl-icon-toggle>
   <ul class="todo-list">
     <li *ngFor="let todo of todos" [class.completed]="todo.completed">
       <app-todo-item

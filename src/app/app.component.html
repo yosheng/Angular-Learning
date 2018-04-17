@@ -1,4 +1,32 @@
-<h1>
-  {{title}}
-</h1>
-<router-outlet></router-outlet>
+<mdl-layout mdl-layout-fixed-header>
+  <mdl-layout-header>
+    <mdl-layout-header-row>
+      <mdl-layout-title>{{title}}</mdl-layout-title>
+      <mdl-layout-spacer></mdl-layout-spacer>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation" *ngIf="auth?.user?.username !== null">
+        <a class="mdl-navigation__link" routerLink="todo">Todos</a>
+      </nav>
+      <nav class="mdl-navigation" *ngIf="auth?.user?.username !== null">
+        <a class="mdl-navigation__link">{{auth.user.username}}</a>
+      </nav>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" *ngIf="auth?.user?.username === null" (click)="login()">
+          Login
+        </a>
+        <a class="mdl-navigation__link" *ngIf="auth?.user?.username !== null" (click)="logout()">
+          Logout
+        </a>
+      </nav>
+    </mdl-layout-header-row>
+  </mdl-layout-header>
+  <mdl-layout-drawer>
+    <mdl-layout-title>{{title}}</mdl-layout-title>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link">Link</a>
+    </nav>
+  </mdl-layout-drawer>
+  <mdl-layout-content class="content">
+    <router-outlet></router-outlet>
+  </mdl-layout-content>
+</mdl-layout>
