@@ -6,12 +6,13 @@ import { OneComponent } from './one/one.component';
 import { TwoComponent } from './two/two.component';
 import { ThreeComponent } from './one/three/three.component';
 import { TrimSpacePipe } from './trim-space.pipe';
+import { LogOnClickDirective } from './log-on-click.directive';
 
 @NgModule({
   imports: [
     CommonModule,
     PlaygroundRoutingModule
   ],
-  declarations: [PlaygroundComponent, OneComponent, TwoComponent, ThreeComponent,  TrimSpacePipe]
+  declarations: [PlaygroundComponent, OneComponent, TwoComponent, ThreeComponent,  TrimSpacePipe, LogOnClickDirective]
 })
 export class PlaygroundModule { }
