@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   onSubmit(formValue) {
     this.service
       .loginWithCredentials(formValue.login.username, formValue.login.password)
-      .then(auth => {
+      .subscribe(auth => {
         let redirectUrl = (auth.redirectUrl === null)? '/': auth.redirectUrl;
         if(!auth.hasError){
           this.router.navigate([redirectUrl]);

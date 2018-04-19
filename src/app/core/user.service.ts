@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/add/operator/toPromise';
 import { User } from '../domain/entities';
 
 @Injectable()
@@ -11,19 +11,13 @@ export class UserService {
 
   constructor(private client: HttpClient) { }
 
-  findUser(username: string): Promise<User> {
+  findUser(username: string): Observable<User> {
     const url = `${this.api_url}/?username=${username}`;
     return this.client.get(url)
-              .toPromise()
-              .then(res => {
-                let users = res as User[];
-                return (users.length>0)?users[0]:null;
-              })
-              .catch(this.handleError);
+      .map((res) => {
+        console.log(res)
+        let users = res as User[];
+        return (users.length > 0) ? users[0] : null;
+      });
   }
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
-  }
-
 }

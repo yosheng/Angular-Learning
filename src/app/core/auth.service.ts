@@ -1,4 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/toPromise';
 import { Auth } from '../domain/entities';
@@ -8,10 +9,10 @@ export class AuthService {
 
   constructor(@Inject('user') private userService) { }
 
-  loginWithCredentials(username: string, password: string): Promise<Auth> {
+  loginWithCredentials(username: string, password: string): Observable<Auth> {
     return this.userService
       .findUser(username)
-      .then(user => {
+      .map(user => {
         let auth = new Auth();
         localStorage.removeItem('userId');
         let redirectUrl = (localStorage.getItem('redirectUrl') === null)?
@@ -31,11 +32,5 @@ export class AuthService {
 
         return auth;
       })
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
   }
 }
