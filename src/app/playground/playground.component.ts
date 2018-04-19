@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaygroundComponent implements OnInit {
 
+  birthday = new Date();
+
   constructor() { }
 
   ngOnInit() {

@@ -2,6 +2,13 @@
   playground works!
 </p>
 
+<p> Without Pipe: Today is {{ birthday }}</p>
+<p> With Pipe: Today is {{ birthday | date: "MM/dd/yy" }}</p>
+<p>The time is {{ birthday | date: "shortTime" }}</p>
+<p>The time is {{ birthday | date: "medium" | trimSpace }}</p>
+<p>The time is {{ birthday | date: "medium" | uppercase }}</p>
+
+
 <ul>
   <li><a routerLink="one">One</a></li>
   <li><a routerLink="two">Two</a></li>
