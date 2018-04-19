@@ -1,15 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import {
   CanActivate,
   CanActivateChild,
   Router,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot } from '@angular/router';
+  RouterStateSnapshot,
+  CanLoad,
+  Route} from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class AuthGuardService implements CanActivate, CanActivateChild{
+export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad{
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, @Inject('auth') private authService) { }
+
+  canLoad(route: Route): Observable<boolean>{
+    let url = `/${route.path}`;
+
+    return this.authService.getAuth()
+      .map(auth => !auth.hasError);
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;

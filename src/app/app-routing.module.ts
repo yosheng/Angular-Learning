@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './core/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
   },
   {
     path: 'todo',
-    redirectTo: 'todo/ALL'
+    redirectTo: 'todo/ALL',
+    canLoad: [AuthGuardService]
   },
   {
     path: 'playground',

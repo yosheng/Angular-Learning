@@ -14,12 +14,16 @@ export class AppComponent implements OnInit{
   constructor(@Inject('auth') private service, private router: Router){
   }
   ngOnInit() {
-
+    this.service
+      .getAuth()
+      .subscribe(auth => this.auth = Object.assign({}, auth));
   }
   login() {
     this.router.navigate(['login']);
   }
   logout(){
-
+    this.service.unAuth();
+    this.auth = null;
+    this.router.navigate(['login']);
   }
 }
