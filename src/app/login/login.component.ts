@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   username = '';
   password = '';
+  photo = '/assets/login_default_bg.jpg';
   auth: Auth;
 
   constructor(@Inject('auth') private service, private router: Router) {

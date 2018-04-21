@@ -1,5 +1,11 @@
-<div>
-  <form  #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+<div class="mdl-grid mdl-grid--no-spacing login-container"
+     [ngStyle]="{'background-image': 'url('+photo+')'}" >
+     <mdl-layout-spacer
+          class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet mdl-cell--hide-phone">
+     </mdl-layout-spacer>
+     <form
+      class=" mdel-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--4-phone login-form"
+      #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
       <fieldset ngModelGroup="login">
           <mdl-textfield
           type="text"
@@ -31,4 +37,5 @@
         </button>
       </fieldset>
   </form>
+  <mdl-layout-spacer></mdl-layout-spacer>
 </div>
