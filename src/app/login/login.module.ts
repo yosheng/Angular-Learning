@@ -3,6 +3,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LoginRoutingModule } from './login-routing.module';
 
 import { LoginComponent } from './login.component';
+import { FlickrService } from './flickr.service';
 
 @NgModule({
   imports: [
@@ -11,6 +12,9 @@ import { LoginComponent } from './login.component';
   ],
   declarations: [
     LoginComponent
+  ],
+  providers: [
+    { provide: 'flickr', useClass: FlickrService }
   ]
 })
 export class LoginModule { }

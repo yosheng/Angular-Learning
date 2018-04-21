@@ -2,7 +2,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Auth } from '../domain/entities';
+import { Auth, Photo } from '../domain/entities';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +14,20 @@ export class LoginComponent implements OnInit {
   username = '';
   password = '';
   photo = '/assets/login_default_bg.jpg';
+  slides: Photo[] = [];
   auth: Auth;
 
-  constructor(@Inject('auth') private service, private router: Router) {
-  }
+  constructor(
+    @Inject('auth') private service,
+    @Inject('flickr') private flickrService,
+    private router: Router) {}
 
   ngOnInit() {
+    this.flickrService.getResult('wallpaper')
+      .subscribe((photo: Photo[]) => {
+      this.slides = [...photo];
+      this.rotateImages(this.slides);
+    });;
   }
 
   onSubmit(formValue) {
@@ -34,6 +42,15 @@ export class LoginComponent implements OnInit {
           this.auth = Object.assign({}, auth);
         }
       });
+  }
+
+  rotateImages(arr: Photo[]){
+    const length = arr.length
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % length;
+      this.photo = this.slides[i].url;
+    }, 20000);
   }
 
 }

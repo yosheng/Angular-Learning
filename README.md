@@ -36,3 +36,13 @@ statusText:"Unprocessable Entity"
 * [Using only @angular/common/http but @angular/http still required](https://github.com/angular/in-memory-web-api/issues/140)
 
 最後附上 Angular in-memory-web-api [版本變更紀錄](https://changelogs.md/github/angular/in-memory-web-api/)
+
+## 2018-04-21
+
+免費圖片來源使用 Flickr image search api
+
+文檔參考如下：
+
+*  [flickr.photos.search](https://www.flickr.com/services/api/flickr.photos.search.html)
+*  [misc.urls](https://www.flickr.com/services/api/misc.urls.html)
+*  [response.json](https://www.flickr.com/services/api/response.json.html)
