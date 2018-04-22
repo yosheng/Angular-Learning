@@ -10,6 +10,15 @@
 
 <button appLogOnClick >Click me</button>
 
+<div [@signal]="'go'"
+class="traffic-light"></div>
+
+<div [@signal]="signal"
+class="traffic-light"></div>
+
+<button (click)="onGo()">Go</button>
+<button (click)="onStop()">Stop</button>
+
 <ul>
   <li><a routerLink="one">One</a></li>
   <li><a routerLink="two">Two</a></li>
