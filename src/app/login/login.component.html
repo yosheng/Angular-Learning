@@ -32,7 +32,10 @@
         <button
           mdl-button mdl-button-type="raised"
           mdl-colored="primary"
-          mdl-ripple type="submit">
+          mdl-ripple type="submit"
+          [@loginState]="loginBtnState"
+          (mouseenter)="toggleLoginState(true)"
+          (mouseleave)="toggleLoginState(false)">
           Login
         </button>
       </fieldset>

@@ -1,5 +1,5 @@
 // login.component.ts
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, trigger, state, style, transition, animate } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Auth, Photo } from '../domain/entities';
@@ -7,7 +7,19 @@ import { Auth, Photo } from '../domain/entities';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('loginState', [
+      state('inactive', style({
+        transform: 'scale(1)'
+      })),
+      state('active', style({
+        transform: 'scale(1.1)'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
+    ])
+  ]
 })
 export class LoginComponent implements OnInit {
 
@@ -16,6 +28,7 @@ export class LoginComponent implements OnInit {
   photo = '/assets/login_default_bg.jpg';
   slides: Photo[] = [];
   auth: Auth;
+  loginBtnState = 'inactive';
 
   constructor(
     @Inject('auth') private service,
@@ -53,4 +66,7 @@ export class LoginComponent implements OnInit {
     }, 20000);
   }
 
+  toggleLoginState(btnState: boolean){
+    this.loginBtnState = btnState ? 'active' : 'inactive';
+  }
 }
